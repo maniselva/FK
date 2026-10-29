@@ -1,0 +1,247 @@
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Food Key Light Theme - Vibrant with Dark Fonts */
+        --background: 0 0% 99%;
+        --foreground: 220 20% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 20% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 20% 15%;
+        
+        /* Vibrant Orange - Primary */
+        --primary: 24 95% 50%;
+        --primary-foreground: 0 0% 100%;
+        
+        /* Secondary - Soft Gray */
+        --secondary: 220 15% 95%;
+        --secondary-foreground: 220 20% 15%;
+        
+        /* Muted */
+        --muted: 220 10% 94%;
+        --muted-foreground: 220 10% 40%;
+        
+        /* Accent - Fresh Green */
+        --accent: 142 70% 40%;
+        --accent-foreground: 0 0% 100%;
+        
+        /* Destructive - Chili Red */
+        --destructive: 4 90% 55%;
+        --destructive-foreground: 0 0% 100%;
+        
+        /* Border & Input */
+        --border: 220 15% 88%;
+        --input: 220 15% 88%;
+        --ring: 24 95% 50%;
+        
+        /* Chart Colors */
+        --chart-1: 24 95% 50%;
+        --chart-2: 142 70% 40%;
+        --chart-3: 4 90% 55%;
+        --chart-4: 200 80% 45%;
+        --chart-5: 280 60% 50%;
+        
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #1a1a2e;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        letter-spacing: -0.02em;
+        color: #1a1a2e;
+    }
+    
+    p, span, a, li, label {
+        color: #2d3748;
+    }
+    
+    code, .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+}
+
+@layer components {
+    /* Navigation link styles */
+    .nav-link {
+        @apply text-gray-700 hover:text-gray-900 transition-colors font-semibold;
+    }
+    
+    .nav-link.active {
+        @apply text-orange-500 font-bold;
+    }
+    
+    /* Card text visibility */
+    .card-title {
+        @apply text-gray-900 font-bold;
+    }
+    
+    .card-description {
+        @apply text-gray-600;
+    }
+    
+    /* Button styles */
+    .btn-primary {
+        @apply bg-orange-500 text-white hover:bg-orange-600 font-semibold shadow-lg shadow-orange-500/30 transition-all;
+    }
+    
+    .btn-secondary {
+        @apply bg-gray-100 text-gray-800 hover:bg-gray-200 font-medium transition-all;
+    }
+    
+    /* Navbar glass effect */
+    .nav-glass {
+        @apply bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm;
+    }
+    
+    /* Cart badge */
+    .cart-badge {
+        @apply absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center;
+    }
+    
+    /* Input styles */
+    input, textarea, select {
+        @apply text-gray-800 placeholder-gray-400;
+    }
+    
+    /* Restaurant card styles */
+    .restaurant-card {
+        @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100;
+    }
+    
+    .restaurant-card h3 {
+        @apply text-gray-900 font-bold;
+    }
+    
+    .restaurant-card p {
+        @apply text-gray-600;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    
+    .glass {
+        @apply backdrop-blur-xl bg-white/80 border border-gray-200 shadow-lg;
+    }
+    
+    .glass-card {
+        @apply backdrop-blur-xl bg-white/90 border border-gray-100 shadow-sm;
+    }
+    
+    .glow-orange {
+        box-shadow: 0 4px 25px rgba(249, 115, 22, 0.25);
+    }
+    
+    .glow-green {
+        box-shadow: 0 4px 20px rgba(34, 197, 94, 0.2);
+    }
+    
+    .hero-gradient {
+        background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 40%, #ecfccb 100%);
+    }
+    
+    .text-gradient-orange {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500;
+    }
+    
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-pulse-slow {
+        animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .animate-slide-up {
+        animation: slideUp 0.5s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    .animate-bounce-slow {
+        animation: bounceSlow 2s ease-in-out infinite;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Selection Color */
+::selection {
+    background: rgba(249, 115, 22, 0.2);
+    color: #1a1a2e;
+}
+
+/* Debug wrapper fix */
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}

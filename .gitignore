@@ -1,0 +1,17 @@
+# Never commit credentials or local state
+.env
+.env.*
+**/.env
+**/.env.*
+node_modules/
+**/node_modules/
+.emergent/
+backend/uploads/
+test_reports/
+memory/
+__pycache__/
+*.pyc
+*.pem
+*.p12
+*.pfx
+*.key

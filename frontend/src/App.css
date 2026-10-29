@@ -1,0 +1,266 @@
+/* Food Key Custom Styles */
+
+/* Logo Animation */
+.logo-key {
+    transition: all 0.3s ease;
+}
+
+.logo-key:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 180, 0, 0.6));
+    transform: rotate(-5deg);
+}
+
+/* Card Hover Effects */
+.restaurant-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.restaurant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+.restaurant-card:hover .restaurant-image {
+    transform: scale(1.05);
+}
+
+.restaurant-image {
+    transition: transform 0.5s ease;
+}
+
+/* Menu Item Card */
+.menu-item-card {
+    transition: all 0.2s ease;
+}
+
+.menu-item-card:hover {
+    background: hsl(var(--card) / 0.8);
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-md;
+}
+
+.btn-secondary {
+    @apply bg-transparent border border-white/20 text-white rounded-full px-6 py-3;
+    @apply hover:bg-white/10 transition-colors duration-200;
+}
+
+.btn-ghost {
+    @apply text-white/70 hover:text-white hover:bg-white/5 rounded-lg px-4 py-2;
+    @apply transition-colors duration-200;
+}
+
+/* Category Bento Grid */
+.bento-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-3;
+}
+
+/* Responsive grid handled by Tailwind classes */
+
+.bento-item {
+    @apply relative overflow-hidden rounded-2xl aspect-square transition-transform hover:scale-[1.02] cursor-pointer shadow-sm;
+}
+
+/* Hover effects handled in main class */
+
+.bento-item.span-2 {
+    @apply md:col-span-1;
+}
+
+.bento-item.tall {
+    grid-row: span 2;
+}
+
+/* Navigation */
+.nav-glass {
+    @apply backdrop-blur-xl bg-white/80 border-b border-border/50 shadow-sm;
+}
+
+.nav-link {
+    @apply text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5;
+    @apply after:bg-[#FFB400] after:transition-all after:duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    @apply text-gray-900;
+}
+
+/* Cart Badge */
+.cart-badge {
+    @apply absolute -top-2 -right-2 bg-[#FFB400] text-black text-xs font-bold;
+    @apply w-5 h-5 rounded-full flex items-center justify-center;
+    animation: bounce 0.3s ease;
+}
+
+/* Status Badge */
+.status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+}
+
+.status-pending {
+    @apply bg-yellow-500/20 text-yellow-400;
+}
+
+.status-confirmed {
+    @apply bg-blue-500/20 text-blue-400;
+}
+
+.status-preparing {
+    @apply bg-orange-500/20 text-orange-400;
+}
+
+.status-ready {
+    @apply bg-purple-500/20 text-purple-400;
+}
+
+.status-picked_up {
+    @apply bg-cyan-500/20 text-cyan-400;
+}
+
+.status-delivered {
+    @apply bg-green-500/20 text-green-400;
+}
+
+.status-cancelled {
+    @apply bg-red-500/20 text-red-400;
+}
+
+/* Veg/Non-Veg Indicator */
+.veg-indicator {
+    @apply w-4 h-4 border-2 rounded flex items-center justify-center;
+}
+
+.veg-indicator.veg {
+    @apply border-green-500;
+}
+
+.veg-indicator.veg::after {
+    content: '';
+    @apply w-2 h-2 rounded-full bg-green-500;
+}
+
+.veg-indicator.non-veg {
+    @apply border-red-500;
+}
+
+.veg-indicator.non-veg::after {
+    content: '';
+    @apply w-0 h-0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 6px solid #ef4444;
+}
+
+/* Floating Action Button */
+.fab {
+    @apply fixed;
+    bottom: 80px;
+    right: 24px;
+    z-index: 9999;
+    @apply w-14 h-14 rounded-full bg-[#FFB400] text-black;
+    @apply flex items-center justify-center;
+    @apply hover:scale-110 transition-transform duration-200;
+    box-shadow: 0 0 20px rgba(255, 180, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Chat Window */
+.chat-window {
+    @apply fixed;
+    bottom: 160px;
+    right: 24px;
+    z-index: 9999;
+    @apply w-96 max-w-[calc(100vw-48px)] h-[500px] max-h-[70vh];
+    @apply rounded-2xl overflow-hidden;
+    @apply glass border border-white/20;
+    @apply flex flex-col;
+    animation: slideUp 0.3s ease;
+}
+
+/* Order Timeline */
+.order-timeline {
+    @apply relative pl-8;
+}
+
+.order-timeline::before {
+    content: '';
+    @apply absolute left-3 top-0 bottom-0 w-0.5 bg-border;
+}
+
+.timeline-item {
+    @apply relative pb-6;
+}
+
+.timeline-item::before {
+    content: '';
+    @apply absolute left-[-20px] top-1 w-3 h-3 rounded-full bg-border;
+}
+
+.timeline-item.active::before {
+    @apply bg-[#FFB400];
+    box-shadow: 0 0 10px rgba(255, 180, 0, 0.5);
+}
+
+.timeline-item.completed::before {
+    @apply bg-[#00FF94];
+}
+
+/* Input Focus */
+.input-focus {
+    @apply focus:border-[#FFB400] focus:ring-1 focus:ring-[#FFB400] focus:outline-none;
+}
+
+/* Price Tag */
+.price-tag {
+    @apply text-primary font-bold;
+}
+
+/* Rating Stars */
+.rating-star {
+    @apply text-[#FFB400];
+}
+
+/* Skeleton Loading */
+.skeleton {
+    @apply bg-secondary animate-pulse;
+}
+
+/* Dashboard Stat Card */
+.stat-card {
+    @apply bg-card rounded-2xl border border-border p-6 shadow-sm transition-all hover:shadow-md;
+}
+
+/* Order Card */
+.order-card {
+    @apply bg-card rounded-xl border border-border p-5 shadow-sm;
+}
+
+/* Mobile Bottom Navigation */
+.mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 z-50;
+    @apply glass border-t border-white/10;
+    @apply flex justify-around items-center py-2 px-4;
+}
+
+@media (min-width: 768px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Quantity Selector */
+.qty-selector {
+    @apply flex items-center gap-2 bg-secondary rounded-full;
+}
+
+.qty-btn {
+    @apply w-8 h-8 rounded-full flex items-center justify-center;
+    @apply hover:bg-primary hover:text-black transition-colors duration-200;
+}

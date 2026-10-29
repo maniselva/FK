@@ -1,0 +1,197 @@
+{
+  "identity": {
+    "name": "Food Key",
+    "tagline": "Unlock the Flavor. The Art of Delivery.",
+    "mission": "To transform food delivery from a utility into a curated culinary experience. We don't just deliver food; we deliver mood.",
+    "archetype": "Jewel & Luxury (Dark Mode) / Organic & Earthy (Light Mode)",
+    "vibe": "Cinematic, Appetizing, Electric, Premium"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Syne, sans-serif",
+      "weights": ["700", "800"],
+      "usage": "Main headers, Hero sections, Restaurant names. Use tight tracking.",
+      "fallback": "Playfair Display"
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Menu descriptions, UI elements, Buttons.",
+      "fallback": "DM Sans"
+    },
+    "accents": {
+      "font_family": "JetBrains Mono, monospace",
+      "usage": "Prices, Tags, Delivery times, Metadata."
+    }
+  },
+  "colors": {
+    "primary": {
+      "name": "Electric Amber",
+      "hex": "#FFB400",
+      "usage": "Primary CTAs, Highlights, Rating Stars. The 'Key' color."
+    },
+    "secondary": {
+      "name": "Neon Mint",
+      "hex": "#00FF94",
+      "usage": "Success states, Vegan/Healthy tags, Delivery active status."
+    },
+    "accent": {
+      "name": "Chili Red",
+      "hex": "#FF3B30",
+      "usage": "Error states, Discount badges, 'Hot' items."
+    },
+    "dark_mode": {
+      "background": "#050505",
+      "surface": "#121212",
+      "border": "#2A2A2A",
+      "text_primary": "#EDEDED",
+      "text_secondary": "#A1A1AA"
+    },
+    "light_mode": {
+      "background": "#FDFBF7",
+      "surface": "#FFFFFF",
+      "border": "#E5E5E5",
+      "text_primary": "#18181B",
+      "text_secondary": "#71717A"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "style": "backdrop-blur-xl bg-black/40 border border-white/10",
+      "usage": "Floating Navigation, Modal Overlays, Toast Notifications."
+    },
+    "gradients": {
+      "hero_glow": "radial-gradient(circle at 50% 50%, rgba(255, 180, 0, 0.15), transparent 70%)",
+      "card_hover": "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)"
+    },
+    "borders": {
+      "default": "1px solid var(--border)",
+      "active": "1px solid var(--primary)"
+    },
+    "shadows": {
+      "card": "0 8px 32px -8px rgba(0, 0, 0, 0.5)",
+      "glow": "0 0 20px rgba(255, 180, 0, 0.3)"
+    }
+  },
+  "layout_strategies": {
+    "grid_system": {
+      "marketing": "Bento Grid (Tetris Mode) - Mix of 1x1, 2x1, and 2x2 cells for categories.",
+      "listing": "Masonry or Asymmetrical Grid for restaurant cards to break monotony.",
+      "dashboard": "High Density Grid (4 columns) for analytics."
+    },
+    "spacing": {
+      "scale": "Tailwind default but doubled (p-8, p-12, p-16).",
+      "rule": "Generous whitespace around food images to let them 'breathe'."
+    },
+    "containers": {
+      "max_width": "max-w-7xl",
+      "padding": "px-4 md:px-8 lg:px-12"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-black font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,180,0,0.4)]",
+      "secondary": "bg-transparent border border-white/20 text-white rounded-full hover:bg-white/10",
+      "ghost": "text-white/70 hover:text-white hover:bg-white/5 rounded-lg"
+    },
+    "cards": {
+      "restaurant": "group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300",
+      "food_item": "flex flex-col gap-2 p-4 rounded-xl bg-surface hover:bg-surface/80 transition-colors"
+    },
+    "inputs": {
+      "style": "bg-surface/50 border-border focus:border-primary focus:ring-1 focus:ring-primary rounded-xl h-12"
+    },
+    "navigation": {
+      "type": "Floating Dock",
+      "position": "Fixed bottom (mobile) or Sticky top (desktop) with glassmorphism."
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "transitions": {
+      "default": "type: 'spring', stiffness: 300, damping: 30",
+      "hover": "duration: 0.2, ease: 'easeOut'"
+    },
+    "animations": {
+      "fade_in_up": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}",
+      "stagger_children": "transition={{ staggerChildren: 0.1 }}"
+    }
+  },
+  "images": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1662452883375-9226ea22c765?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Gourmet burger in sunlight",
+      "category": "hero"
+    },
+    "categories": {
+      "sushi": "https://images.unsplash.com/photo-1681649303536-a1e81367e1bc?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "burger": "https://images.unsplash.com/photo-1611309454921-16cef3438ee0?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "pizza": "https://images.unsplash.com/photo-1610970879786-70b2cc0e8a9c?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "delivery": {
+      "rider": "https://images.unsplash.com/photo-1702812650865-2c84572ffee2?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "map_bg": "https://images.unsplash.com/photo-1618066296858-2046a4a39c25?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "restaurant_interiors": [
+      "https://images.unsplash.com/photo-1758701446288-f82ecdd88e9e?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "https://images.unsplash.com/photo-1769985840485-c908f7bf9f6d?crop=entropy&cs=srgb&fm=jpg&q=85"
+    ]
+  },
+  "pages_structure": [
+    {
+      "name": "Landing Page",
+      "path": "/",
+      "features": ["Hero with Parallax", "Bento Grid Categories", "Featured Restaurants", "AI Chatbot Trigger"]
+    },
+    {
+      "name": "Restaurant Detail",
+      "path": "/restaurant/:id",
+      "features": ["Menu List", "Cart Sidebar", "Restaurant Info"]
+    },
+    {
+      "name": "Cart & Checkout",
+      "path": "/checkout",
+      "features": ["Order Summary", "Address Selection (Map)", "Payment (COD Only)"]
+    },
+    {
+      "name": "Order Tracking",
+      "path": "/track/:orderId",
+      "features": ["Real-time Status", "Rider Location (Mock)", "ETA"]
+    },
+    {
+      "name": "Dashboards",
+      "path": "/dashboard/*",
+      "features": ["Restaurant Owner View", "Delivery Partner View"]
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Implement a 'Theme Toggle' but default to Dark Mode for the 'Ultra Stylish' feel.",
+    "Use 'Syne' font for all headings. Import it from Google Fonts.",
+    "Use 'Manrope' for body text.",
+    "Implement the 'Bento Grid' for the food categories section on the home page.",
+    "Use the provided image URLs for placeholders. DO NOT use generic placeholders.",
+    "For the AI Chatbot, create a floating action button (FAB) that opens a glassmorphism chat window.",
+    "Mock the OTP login flow: Any 4-digit code works.",
+    "Use Browser Geolocation API for the 'Detect Location' feature.",
+    "Ensure all interactive elements have 'data-testid' attributes.",
+    "Use 'sonner' for all toast notifications.",
+    "Do not use 'Inter' font anywhere."
+  ],
+  "universal_guidelines": {
+    "design_philosophy": "Fusion over Imitation. Emotion First. Content is King.",
+    "anti_patterns": [
+      "No generic centered layouts.",
+      "No 'Inter' font for headings.",
+      "No full-screen gradients without texture.",
+      "No 'teal' or 'purple' as primary colors (unless specified)."
+    ],
+    "accessibility": {
+      "contrast": "Ensure APCA compliance.",
+      "motion": "Respect prefers-reduced-motion."
+    },
+    "code_style": {
+      "components": "Use Shadcn UI for logic, Custom Tailwind for layout.",
+      "exports": "Named exports for components, Default exports for pages."
+    }
+  }
+}
