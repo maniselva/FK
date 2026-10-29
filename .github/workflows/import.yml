@@ -1,0 +1,35 @@
+name: one-time-archive-import
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/import.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download, filter and commit sanitized archive
+        env:
+          ARCHIVE_URL: https://customer-assets-39nsmqrw.emergentagent.net/wingman/9c30a448-13df-4129-a062-a6ca822c6b49/attachments/3a4aa251e625465f84cae8328312540f_foodkey-fk-sanitized.zip
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/fk.zip "$ARCHIVE_URL"
+          mkdir -p /tmp/src && cd /tmp/src && unzip -q /tmp/fk.zip
+          echo "Files in archive: $(find . -type f | wc -l)"
+          echo "Removing env/key files (names only):"
+          find . -type f \( -name '.env' -o -name '.env.*' -o -name '*.pem' -o -name '*.key' -o -name 'id_rsa*' \) -print -delete
+          echo "Removing files over 1MB:"
+          find . -type f -size +1048576c -print -delete
+          echo "Removing files matching secret patterns (names only):"
+          grep -rIlE '(mongodb(\+srv)?://[^:/[:space:]]+:[^@[:space:]]+@|sk-[A-Za-z0-9_-]{20,}|sk_live_[A-Za-z0-9]{10,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|github_pat_|xox[bp]-|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY|rzp_live_)' . | tee /tmp/hits.txt | xargs -r rm -f || true
+          cp -a /tmp/src/. "$GITHUB_WORKSPACE"/
+          cd "$GITHUB_WORKSPACE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- . ':!.github'
+          echo "Files staged: $(git diff --cached --name-only | wc -l)"
+          git commit -q -m "Import Foodkey sanitized source archive"
+          git push origin HEAD:main
